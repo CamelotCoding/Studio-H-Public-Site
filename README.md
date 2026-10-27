@@ -10,14 +10,20 @@ external script. Edit a file, commit, push to `main`, and GitHub Pages publishes
 
 | Path | What it is |
 |---|---|
-| `index.html` | Studio H home page (tagline, featured game, contact) |
-| `hollowmere/index.html` | Hollowmere game page: hero, features, screenshots, FAQ, Support (this is the App Store **Support URL**) |
-| `hollowmere/privacy/index.html` | Hollowmere Privacy Policy (`https://studiohgames.com/hollowmere/privacy/`) |
-| `hollowmere/terms/index.html` | Hollowmere Terms of Use (`https://studiohgames.com/hollowmere/terms/`) |
-| `hollowmere/shots/*.webp` | Screenshots taken from the game (phone shots 780×1688, `farm-wide.webp` 1600×900) |
-| `hollowmere/og.png` | Share image for link previews (1200×630) |
+| `index.html` | Studio H home page: tagline, one card per game (`#games`), what we make, contact (`#contact`) |
+| `hollowmere/` | Hollowmere: Cozy Witch Farm |
+| `sevenfold/` | Sevenfold: The Broken Seal |
+| `camelot/` | Camelot Tea Legends: Idle Hero-Collector RPG |
+| `ararat-acres/` | Ararat Acres: After the Flood |
+| `leafy/` | Leafy Tycoon: Idle Plant Shop |
+| `aegis/` | Aegis of the Ancients: Myth Tower Defense |
+| `<game>/index.html` | Game page: hero, features, screenshots, FAQ, Support (this is the App Store **Support URL**) |
+| `<game>/privacy/index.html` | The game's Privacy Policy (e.g. `https://studiohgames.com/hollowmere/privacy/`) |
+| `<game>/terms/index.html` | The game's Terms of Use (e.g. `https://studiohgames.com/hollowmere/terms/`) |
+| `<game>/shots/*.webp` | Screenshots taken from the game, plus one wide image for the hero and home page card |
+| `<game>/og.png` | Share image for link previews (1200×630) |
 | `assets/site.css` | The one shared stylesheet (colours, fonts, light and dark mode) |
-| `assets/site.js` | Tiny optional script: the App Store link constant and the footer year |
+| `assets/site.js` | Tiny optional script: the `GAMES` map of App Store links and the footer year |
 | `favicon.svg` | Site icon (also the Studio H mark) |
 | `404.html` | "Page not found" page (GitHub Pages serves it automatically) |
 | `app-ads.txt` | AdMob authorised sellers file (must stay at the site root) |
@@ -31,19 +37,20 @@ navigation or footer has to be made in each HTML file.
 Fonts are Fredoka (text) and Grenze Gotisch (titles) from Google Fonts, the same as in the game. Colours
 are CSS variables at the top of `assets/site.css`; dark mode follows the visitor's system setting.
 
-## When Hollowmere goes live on the App Store
+## When a game goes live on the App Store
 
-Open `assets/site.js` and set the constant at the top:
+Open `assets/site.js` and set that game's `url` in the `GAMES` map at the top, for example:
 
 ```js
-const APP_STORE_URL = 'https://apps.apple.com/app/idXXXXXXXXXX';
+hollowmere: { name: 'Hollowmere', url: 'https://apps.apple.com/app/idXXXXXXXXXX', note: 'Free to play on iPhone and iPad.' },
 ```
 
-The "Coming soon to the App Store" badge on the game page then becomes a working
-"Download on the App Store" link. If you'd rather use Apple's official badge artwork, download it from
-<https://developer.apple.com/app-store/marketing/guidelines/>, save it as `hollowmere/app-store-badge.svg`,
-and replace the `<svg>` and text inside the `<a class="store-badge">` element with
-`<img src="/hollowmere/app-store-badge.svg" alt="Download on the App Store" width="160" height="54">`.
+The "Coming soon to the App Store" badge on the game page (the element with `data-app-store="hollowmere"`)
+then becomes a working "Download on the App Store" link, and the text of the matching
+`data-store-note="hollowmere"` element is replaced with `note`. If you'd rather use Apple's official badge
+artwork, download it from <https://developer.apple.com/app-store/marketing/guidelines/>, save it as
+`<game>/app-store-badge.svg`, and replace the `<svg>` and text inside the `<a class="store-badge">` element with
+`<img src="/<game>/app-store-badge.svg" alt="Download on the App Store" width="160" height="54">`.
 
 ## The legal pages
 
@@ -52,18 +59,32 @@ The text of the privacy policy and terms is copied word for word from the game r
 then replace everything between `<main id="main" class="legal">` … `</main>` (after the breadcrumb line)
 with the content of the source file's `<main>` element. Keep the wording identical.
 
-## Adding a new game page
+## Adding a game
 
-1. Copy the `hollowmere/` folder to a new folder named after the game, e.g. `newgame/`.
-2. In `newgame/index.html`, change the `<title>`, description, canonical URL, Open Graph and Twitter tags,
+1. **Folder.** Create a folder named after the game's slug (lower case, hyphens), e.g. `newgame/`, by copying
+   an existing game folder. It holds:
+
+   ```
+   newgame/
+     index.html          game page
+     shots/*.webp        screenshots + one wide hero image (keep each under about 400 KB)
+     og.png              share image, 1200×630
+     privacy/index.html  Privacy Policy
+     terms/index.html    Terms of Use
+   ```
+
+   In `newgame/index.html` change the `<title>`, description, canonical URL, Open Graph and Twitter tags,
    the hero text, features, screenshots, FAQ and support details.
-3. Replace the images in `newgame/shots/` and `newgame/og.png` (1200×630). Keep each image under about 400 KB
-   (WebP works well).
-4. Update or replace the game's `privacy/` and `terms/` pages.
-5. Add the game to the home page (`index.html`): copy the `<article class="card featured">` block.
-6. Add the new URLs to `sitemap.xml` and links to the header/footer navigation where useful.
-7. If the game needs its own App Store link, add a second constant in `assets/site.js`, or set the link
-   directly in that page's `href`.
+2. **Hero image.** Set the art on the hero section with the `--hero-img` custom property:
+   `<section class="game-hero" style="--hero-img: url('/newgame/shots/hero-wide.webp')">`.
+3. **App Store badge.** Give the badge `data-app-store="newgame"` and its note `data-store-note="newgame"`,
+   and add a matching entry to the `GAMES` map in `assets/site.js`:
+   `newgame: { name: 'New Game', url: '', note: 'Free to play on iPhone and iPad.' },`.
+   Leave `url` empty while the game is coming soon and set it once the App Store link exists.
+4. **Home page card.** In `index.html`, copy one `<article class="card game-card">` inside
+   `<section id="games">` and update the image (with `alt`, `loading="lazy"`, `width` and `height`), the
+   status eyebrow, name, subtitle, one-sentence pitch and the `/newgame/` link.
+5. **Sitemap.** Add `/newgame/`, `/newgame/privacy/` and `/newgame/terms/` to `sitemap.xml`.
 
 ## Preview locally
 
