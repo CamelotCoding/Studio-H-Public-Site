@@ -12,7 +12,7 @@ const GAMES = {
   camelot: { name: 'Camelot Tea Legends', url: '', note: 'Free to play on iPhone and iPad.' },
   ararat: { name: 'Ararat Acres', url: '', note: 'Free to play on iPhone and iPad.' },
   leafy: { name: 'Leafy Tycoon', url: '', note: 'Free to play on iPhone and iPad.' },
-  aegis: { name: 'Aegis', url: '', note: 'Free to play on iPhone and iPad.' },
+  aegis: { name: 'Aegis of the Ancients', url: '', note: 'Free to play on iPhone and iPad.' },
 };
 
 document.querySelectorAll('[data-app-store]').forEach((a) => {
