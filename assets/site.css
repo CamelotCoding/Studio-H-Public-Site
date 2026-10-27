@@ -110,6 +110,17 @@ p { margin: 0 0 1em; }
   .featured .art { min-height: 380px; }
   .featured .body { padding: 40px 40px; align-self: center; }
 }
+/* Home page: one card per game */
+.games { margin-top: -48px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); scroll-margin-top: 90px; }
+.game-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
+.game-card .art { aspect-ratio: 16 / 9; background: var(--plum-800); overflow: hidden; }
+.game-card .art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
+.game-card:hover .art img { transform: scale(1.03); }
+.game-card .body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+.game-card h3 { font-family: var(--font-title); font-weight: 400; font-size: 2.1rem; line-height: 1; color: var(--accent); margin: 0; }
+.game-card .sub { margin: 4px 0 10px; color: var(--ink-soft); font-weight: 500; }
+.game-card .body > p:not(.eyebrow):not(.sub) { flex: 1; }
+.game-card .btn { align-self: flex-start; margin-top: 6px; }
 .values { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .values h3 { color: var(--accent); }
 .contact { text-align: center; }
@@ -117,12 +128,13 @@ p { margin: 0 0 1em; }
 
 /* ---------- game page ---------- */
 .game-hero {
+  /* Each game page sets its own art: <section class="game-hero" style="--hero-img: url('/<game>/shots/<file>.webp')"> */
   position: relative; color: #fffaf0; overflow: hidden;
-  background: linear-gradient(180deg, rgba(29, 20, 48, .25), rgba(29, 20, 48, .55) 35%, rgba(29, 20, 48, .9) 85%), url('../hollowmere/shots/farm-wide.webp') center 35% / cover no-repeat, var(--plum-800);
+  background: linear-gradient(180deg, rgba(29, 20, 48, .25), rgba(29, 20, 48, .55) 35%, rgba(29, 20, 48, .9) 85%), var(--hero-img, url('../hollowmere/shots/farm-wide.webp')) center 35% / cover no-repeat, var(--plum-800);
   padding: 72px 0 56px;
 }
 @media (max-width: 699px) {
-  .game-hero { background: linear-gradient(180deg, rgba(29, 20, 48, .55), rgba(29, 20, 48, .82) 30%, rgba(29, 20, 48, .94) 80%), url('../hollowmere/shots/farm-wide.webp') 30% 30% / cover no-repeat, var(--plum-800); }
+  .game-hero { background: linear-gradient(180deg, rgba(29, 20, 48, .55), rgba(29, 20, 48, .82) 30%, rgba(29, 20, 48, .94) 80%), var(--hero-img, url('../hollowmere/shots/farm-wide.webp')) 30% 30% / cover no-repeat, var(--plum-800); }
 }
 .game-hero h1 { font-family: var(--font-title); font-weight: 400; font-size: clamp(3.4rem, 15vw, 6.4rem); line-height: .95; color: var(--gold); text-shadow: 0 4px 0 rgba(29, 20, 48, .55), 0 10px 30px rgba(0, 0, 0, .45); margin: 0; }
 .game-hero .subtitle { font-size: clamp(1.25rem, 4.5vw, 1.7rem); font-weight: 600; margin: 4px 0 14px; }
