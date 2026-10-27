@@ -11,7 +11,7 @@ const GAMES = {
   sevenfold: { name: 'Sevenfold', url: '', note: 'Available on iPhone and iPad.' },
   camelot: { name: 'Camelot Tea Legends', url: '', note: 'Free to play on iPhone and iPad.' },
   ararat: { name: 'Ararat Acres', url: '', note: 'Free to play on iPhone and iPad.' },
-  leafy: { name: 'Leafy', url: '', note: 'Free to play on iPhone and iPad.' },
+  leafy: { name: 'Leafy Tycoon', url: '', note: 'Free to play on iPhone and iPad.' },
   aegis: { name: 'Aegis', url: '', note: 'Free to play on iPhone and iPad.' },
 };
 
