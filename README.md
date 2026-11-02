@@ -27,7 +27,9 @@ external script. Edit a file, commit, push to `main`, and GitHub Pages publishes
 | `assets/site.css` | The one shared stylesheet (colours, fonts, light and dark mode) |
 | `assets/site.js` | Tiny optional script: the `GAMES` map of App Store links and the footer year |
 | `assets/wiki.css`, `assets/wiki.js` | Shared player-wiki styles and script, used by every game's `wiki/` (see *Adding a wiki*) |
-| `favicon.svg` | Site icon (also the Studio H mark) |
+| `assets/brand/` | Studio H brand assets: `logo.svg`, `logo-512.png` (full logo), `icon.svg`, `icon-1024.png` (badge icon), `favicon.ico`, `favicon-16/32/48.png`, `apple-touch-icon.png`, `android-chrome-192x192.png`, `android-chrome-512x512.png` |
+| `og.png` | Share image for the home page link preview (1200×630) |
+| `favicon.svg` | The brand icon, kept at the root for old links (pages use `assets/brand/`) |
 | `404.html` | "Page not found" page (GitHub Pages serves it automatically) |
 | `app-ads.txt` | AdMob authorised sellers file (must stay at the site root) |
 | `CNAME` | Custom domain for GitHub Pages (`studiohgames.com`) |
@@ -37,8 +39,19 @@ external script. Edit a file, commit, push to `main`, and GitHub Pages publishes
 Every page repeats the same header and footer (there is no build step to include them), so a change to the
 navigation or footer has to be made in each HTML file.
 
-Fonts are Fredoka (text) and Grenze Gotisch (titles) from Google Fonts, the same as in the game. Colours
-are CSS variables at the top of `assets/site.css`; dark mode follows the visitor's system setting.
+Every page's `<head>` links the brand favicon set (`/assets/brand/`) and the Google Fonts, and the header shows
+the Studio H icon and name. Game pages keep their own hero art, `og.png` and `theme-color`.
+
+**Theme** (`assets/site.css`): the brand colours are Black `#000000`, Deep Navy `#09163C`, Electric Blue
+`#2359F5` and White `#FFFFFF`, as CSS variables at the top of the file; dark mode follows the visitor's system
+setting. Headings use Saira Bold (uppercase, wide tracking) and body text Inter, both from Google Fonts. The
+legacy token names `--plum-*` and `--gold` are kept: `--plum-*` now hold navy shades and `--gold` is the
+game-title gold. `--font-game` (Grenze Gotisch) is for game hero titles and wiki titles; `leafy/` and
+`ararat-acres/` also load Fredoka.
+
+**Brand rules.** Don't recolour, stretch or rotate the logo, add effects to it, or place it on busy
+backgrounds. Keep clear space of 1/4 of the badge width around it. Minimum size: 64 px for the full logo,
+16 px for the icon.
 
 ## When a game goes live on the App Store
 
@@ -76,8 +89,9 @@ with the content of the source file's `<main>` element. Keep the wording identic
      terms/index.html    Terms of Use
    ```
 
-   In `newgame/index.html` change the `<title>`, description, canonical URL, Open Graph and Twitter tags,
-   the hero text, features, screenshots, FAQ and support details.
+   Keep the `<head>` block from the existing game page (brand favicon links and fonts), and change the
+   `<title>`, description, canonical URL, Open Graph and Twitter tags, `theme-color`, the hero text,
+   features, screenshots, FAQ and support details.
 2. **Hero image.** Set the art on the hero section with the `--hero-img` custom property:
    `<section class="game-hero" style="--hero-img: url('/newgame/shots/hero-wide.webp')">`.
 3. **App Store badge.** Give the badge `data-app-store="newgame"` and its note `data-store-note="newgame"`,
@@ -106,7 +120,7 @@ behaviour are shared; each game only supplies its page list and its page text.
      result count in `data-wiki-count`). Search matches title, summary and keywords; `?q=word` pre-fills it.
 3. **Each page.** Change the `<title>`, description, canonical and Open Graph URLs, the breadcrumbs
    (Studio H › Game › Wiki › Page), the banner `<h1>` and its line, and the text inside
-   `<article class="wiki-article">`. Load `/assets/wiki.css` after `site.css`, and the scripts in this order:
+   `<article class="wiki-article">`. Keep the copied `<head>` brand favicon links and fonts. Load `/assets/wiki.css` after `site.css`, and the scripts in this order:
    `pages.js`, `/assets/wiki.js`, `/assets/site.js`. Give the banner art with
    `<div class="wiki-banner" style="--wiki-img:url('/newgame/shots/x.webp')">` (optional).
 4. **Building blocks** for article text: `.lead` (intro), `.note` (callout), `.table-scroll` around a `<table>`
