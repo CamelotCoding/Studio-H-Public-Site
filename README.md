@@ -17,6 +17,8 @@ external script. Edit a file, commit, push to `main`, and GitHub Pages publishes
 | `ararat-acres/` | Ararat Acres: After the Flood |
 | `leafy/` | Leafy Tycoon: Idle Plant Shop |
 | `aegis/` | Aegis of the Ancients: Myth Tower Defense |
+| `brightwake/` | Brightwake: a 2D pixel MMORPG in closed beta (web, no App Store links) |
+| `brightwake/wiki/` | Brightwake player wiki: one folder per topic page, plus `pages.js` (the page list) |
 | `<game>/index.html` | Game page: hero, features, screenshots, FAQ, Support (this is the App Store **Support URL**) |
 | `<game>/privacy/index.html` | The game's Privacy Policy (e.g. `https://studiohgames.com/hollowmere/privacy/`) |
 | `<game>/terms/index.html` | The game's Terms of Use (e.g. `https://studiohgames.com/hollowmere/terms/`) |
@@ -24,6 +26,7 @@ external script. Edit a file, commit, push to `main`, and GitHub Pages publishes
 | `<game>/og.png` | Share image for link previews (1200×630) |
 | `assets/site.css` | The one shared stylesheet (colours, fonts, light and dark mode) |
 | `assets/site.js` | Tiny optional script: the `GAMES` map of App Store links and the footer year |
+| `assets/wiki.css`, `assets/wiki.js` | Shared player-wiki styles and script, used by every game's `wiki/` (see *Adding a wiki*) |
 | `favicon.svg` | Site icon (also the Studio H mark) |
 | `404.html` | "Page not found" page (GitHub Pages serves it automatically) |
 | `app-ads.txt` | AdMob authorised sellers file (must stay at the site root) |
@@ -85,6 +88,34 @@ with the content of the source file's `<main>` element. Keep the wording identic
    `<section id="games">` and update the image (with `alt`, `loading="lazy"`, `width` and `height`), the
    status eyebrow, name, subtitle, one-sentence pitch and the `/newgame/` link.
 5. **Sitemap.** Add `/newgame/`, `/newgame/privacy/` and `/newgame/terms/` to `sitemap.xml`.
+
+## Adding a wiki
+
+Every game can have a player wiki at `/<game>/wiki/`. `brightwake/wiki/` is the model to copy. The style and
+behaviour are shared; each game only supplies its page list and its page text.
+
+1. **Folder.** Copy `brightwake/wiki/` to `newgame/wiki/`. Keep the home page (`wiki/index.html`) and one
+   topic page as templates, one folder per topic: `newgame/wiki/<topic>/index.html`.
+2. **Page list.** Edit `newgame/wiki/pages.js`. It sets `window.WIKI = { game, gameUrl, base, pages }`, where
+   each page is `{ slug, title, summary, keywords }` (`slug: ''` is the wiki home). The order is the
+   reading order. `assets/wiki.js` builds from this list:
+   - the sidebar page list and the "← Back to <game>" link (`<aside data-wiki-side>`),
+   - "On this page" contents, on any page with three or more `<h2>`s (headings without an `id` get one),
+   - previous / next links (`<div data-wiki-pager>`),
+   - on the wiki home, one card per page (`<ul data-wiki-cards>`) and the search box (`<input data-wiki-search>`,
+     result count in `data-wiki-count`). Search matches title, summary and keywords; `?q=word` pre-fills it.
+3. **Each page.** Change the `<title>`, description, canonical and Open Graph URLs, the breadcrumbs
+   (Studio H › Game › Wiki › Page), the banner `<h1>` and its line, and the text inside
+   `<article class="wiki-article">`. Load `/assets/wiki.css` after `site.css`, and the scripts in this order:
+   `pages.js`, `/assets/wiki.js`, `/assets/site.js`. Give the banner art with
+   `<div class="wiki-banner" style="--wiki-img:url('/newgame/shots/x.webp')">` (optional).
+4. **Building blocks** for article text: `.lead` (intro), `.note` (callout), `.table-scroll` around a `<table>`
+   (scrolls on phones), `.kit` cards (a titled box with a list), `.star` (gold marker), `<kbd>` for keys,
+   and `<figure>` images.
+5. **Links.** Link the wiki from the game page, add every wiki page to `sitemap.xml`, and keep each file under
+   about 16 KB (split a long topic into two pages). Player-facing text only: no spoilers, no internal details.
+
+Without JavaScript the pages still work: the sidebar shows a back link, and the home lists the pages.
 
 ## Preview locally
 

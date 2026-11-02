@@ -8,6 +8,7 @@
 // Leave `url` empty ('') while the game is "Coming soon".
 const GAMES = {
   hollowmere: { name: 'Hollowmere', url: '', note: 'Free to play on iPhone and iPad.' },
+  brightwake: { name: 'Brightwake', url: '', note: 'Closed beta: sign-up is by invite at brightwakegame.com.' },
   sevenfold: { name: 'Sevenfold', url: '', note: 'Available on iPhone and iPad.' },
   camelot: { name: 'Camelot Tea Legends', url: '', note: 'Free to play on iPhone and iPad.' },
   'ararat-acres': { name: 'Ararat Acres', url: '', note: 'Free to play on iPhone, iPad and Android.' },
