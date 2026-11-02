@@ -1,42 +1,50 @@
-/* Studio H: shared styles for every page. Colours follow the Hollowmere game palette. */
+/* Studio H: shared styles for every page. Colours and type follow the Studio H brand kit
+   (Black, Deep Navy #09163C, Electric Blue #2359F5, White; Saira display, Inter body). */
 :root {
-  --plum-900: #1d1430;
-  --plum-800: #2a1d45;
-  --plum-700: #3b2a5c;
-  --plum-600: #5b3b8c;
-  --plum-400: #9a7bd0;
+  --black: #000000;
+  --navy: #09163c;
+  --blue: #2359f5;
+  --blue-deep: #1a46c9;
+  /* Older token names, kept so game pages and the wiki still resolve; now brand navy shades. */
+  --plum-900: #050c22;
+  --plum-800: #09163c;
+  --plum-700: #16296a;
+  --plum-600: #1d3a96;
+  --plum-400: #7fa0ff;
+  /* Game-title accent: game heroes and wiki banners keep their warm title colour. */
   --gold: #f2c14e;
   --gold-deep: #c98f1f;
 
-  --bg: #fbf1dc;
-  --bg-soft: #f3e2bf;
-  --card: #fffaf0;
-  --ink: #3a2547;
-  --ink-soft: #64507a;
-  --accent: #5b3b8c;
-  --accent-ink: #fffaf0;
-  --line: #e6cd9e;
-  --gold-text: #8a5a0b;
-  --shadow: 0 2px 0 rgba(201, 143, 31, .18), 0 14px 34px -14px rgba(59, 42, 92, .35);
-  --radius: 22px;
-  --font: 'Fredoka', 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-title: 'Grenze Gotisch', 'Fredoka', Georgia, serif;
+  --bg: #ffffff;
+  --bg-soft: #eef2fb;
+  --card: #ffffff;
+  --ink: #09163c;
+  --ink-soft: #46506e;
+  --accent: #2359f5;
+  --accent-ink: #ffffff;
+  --line: #d7deee;
+  --gold-text: #1a46c9;
+  --shadow: 0 1px 0 rgba(9, 22, 60, .06), 0 14px 34px -18px rgba(9, 22, 60, .35);
+  --radius: 14px;
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-title: 'Saira', 'Inter', system-ui, sans-serif;
+  --font-game: 'Grenze Gotisch', Georgia, serif;
   --wrap: 1080px;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1d1430;
-    --bg-soft: #251a3c;
-    --card: #2a1d45;
-    --ink: #f6ecd8;
-    --ink-soft: #cdbfdf;
-    --accent: #c9b2f0;
-    --accent-ink: #1d1430;
-    --line: #463467;
-    --gold-text: #f2c14e;
-    --shadow: 0 14px 34px -16px rgba(0, 0, 0, .7);
+    --bg: #000000;
+    --bg-soft: #0d1d4d;
+    --card: #09163c;
+    --ink: #ffffff;
+    --ink-soft: #b9c3df;
+    --accent: #8aa9ff;
+    --accent-ink: #ffffff;
+    --line: #1d2d63;
+    --gold-text: #8aa9ff;
+    --shadow: 0 14px 34px -16px rgba(0, 0, 0, .8);
     color-scheme: dark;
   }
 }
@@ -51,8 +59,9 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: var(--accent); text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 6px; }
-h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+:focus-visible { outline: 3px solid #4f7bff; outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; font-weight: 600; }
+h2 { font-family: var(--font-title); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); }
 h3 { font-size: 1.2rem; }
 p { margin: 0 0 1em; }
@@ -64,83 +73,78 @@ p { margin: 0 0 1em; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ---------- header / footer ---------- */
-.site-header { background: var(--plum-800); color: #fffaf0; }
+.site-header { background: var(--navy); color: #fff; border-bottom: 1px solid #16296a; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; flex-wrap: wrap; }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: #fffaf0; text-decoration: none; font-weight: 600; font-size: 1.15rem; }
-.brand img { width: 36px; height: 36px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; padding: 4px 0; color: #fff; text-decoration: none; font: 700 1.05rem/1 var(--font-title); text-transform: uppercase; letter-spacing: .22em; }
+.brand img { width: 40px; height: 40px; flex: none; }
 .site-nav { display: flex; gap: 4px 14px; flex-wrap: wrap; }
-.site-nav a { color: #f3e2bf; text-decoration: none; font-weight: 500; padding: 6px 2px; }
-.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--gold); }
+.site-nav a { color: #c9d3ee; text-decoration: none; font-weight: 600; font-size: .95rem; padding: 6px 2px; border-bottom: 2px solid transparent; }
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: #fff; border-bottom-color: var(--blue); }
 
-.site-footer { border-top: 1px solid var(--line); margin-top: 72px; background: var(--plum-900); color: #e8dcf5; padding: 36px 0 44px; font-size: .95rem; }
+.site-footer { border-top: 1px solid var(--line); margin-top: 72px; background: var(--black); color: #b9c3df; padding: 36px 0 44px; font-size: .95rem; }
 .site-footer .wrap { display: flex; flex-wrap: wrap; gap: 18px 32px; justify-content: space-between; align-items: flex-start; }
-.site-footer a { color: #f3e2bf; }
+.site-footer a { color: #fff; }
 .site-footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
 .site-footer p { margin: 0; }
 
 /* ---------- shared pieces ---------- */
 .btn {
-  display: inline-flex; align-items: center; gap: 8px; border-radius: 16px; padding: 12px 20px;
+  display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 12px 20px;
   font: 600 1rem/1.2 var(--font); text-decoration: none; border: 0; cursor: pointer;
-  background: linear-gradient(180deg, #ffd977, var(--gold)); color: #3a2547;
-  box-shadow: 0 3px 0 var(--gold-deep), 0 10px 22px -10px rgba(0, 0, 0, .45);
+  background: var(--blue); color: #fff;
 }
-.btn:hover { filter: brightness(1.04); }
+.btn:hover { background: var(--blue-deep); }
 .btn.ghost { background: transparent; color: inherit; box-shadow: inset 0 0 0 2px currentColor; }
 .card > :last-child { margin-bottom: 0; }
 .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; border: 1px solid var(--line); }
 .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; font-weight: 600; color: var(--gold-text); margin: 0 0 6px; }
 .section { padding: 56px 0 0; }
 .lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 46em; }
-.title-font { font-family: var(--font-title); font-weight: 400; letter-spacing: .5px; }
+.title-font { font-family: var(--font-title); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
 
 /* ---------- studio home ---------- */
-.studio-hero { background: radial-gradient(120% 90% at 50% 0%, var(--plum-600), var(--plum-800) 70%); color: #fffaf0; padding: 64px 0 84px; text-align: center; }
-.studio-hero .mark { width: 92px; height: 92px; margin: 0 auto 18px; }
-.studio-hero h1 { font-size: clamp(2.6rem, 9vw, 4.2rem); font-weight: 600; margin: 0 0 8px; }
-.studio-hero p { font-size: 1.2rem; color: #f3e2bf; margin: 0 auto; max-width: 30em; }
-.featured { margin-top: -48px; display: grid; gap: 0; overflow: hidden; padding: 0; }
-.featured .art { background: linear-gradient(180deg, #4a7f4a, #2f5a35); min-height: 220px; position: relative; overflow: hidden; }
-.featured .art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
-.featured .body { padding: 26px 24px 28px; }
-.featured h2 { font-family: var(--font-title); font-weight: 400; font-size: clamp(2.2rem, 7vw, 3rem); color: var(--accent); margin: 0; }
-.featured .sub { margin: 0 0 12px; color: var(--ink-soft); font-weight: 500; }
-@media (min-width: 760px) {
-  .featured { grid-template-columns: 1.05fr 1fr; }
-  .featured .art { min-height: 380px; }
-  .featured .body { padding: 40px 40px; align-self: center; }
-}
-/* Home page: one card per game */
-.games { margin-top: -48px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); scroll-margin-top: 90px; }
+.studio-hero { background: var(--black); color: #fff; padding: 48px 0 104px; text-align: center; border-bottom: 1px solid #16296a; }
+.studio-hero h1 { margin: 0 auto; line-height: 0; }
+/* Full logo with clear space (1/4 of the badge width) on every side */
+.studio-hero .logo { width: clamp(150px, 34vw, 200px); height: auto; margin: 0 auto; padding: clamp(38px, 8.5vw, 50px); box-sizing: content-box; }
+.studio-hero .tagline { font: 700 clamp(1rem, 3.6vw, 1.25rem)/1.4 var(--font-title); text-transform: uppercase; letter-spacing: .14em; color: #fff; margin: 0 auto; max-width: 30em; }
+.studio-hero .rule { width: 72px; height: 3px; background: var(--blue); border: 0; margin: 18px auto 24px; }
+.studio-hero .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.studio-hero .btn.ghost { color: #fff; box-shadow: inset 0 0 0 2px #2c3f7a; }
+.studio-hero .btn.ghost:hover { box-shadow: inset 0 0 0 2px var(--blue); }
+/* Home page: one card per game; the heading sits on the hero's black band */
+.games > h2 { grid-column: 1 / -1; color: #fff; font-size: clamp(1.1rem, 3.2vw, 1.35rem); margin: 0 0 -4px; }
+.games { margin-top: -64px; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); scroll-margin-top: 90px; }
 .game-card { display: flex; flex-direction: column; padding: 0; overflow: hidden; }
 .game-card .art { aspect-ratio: 16 / 9; background: var(--plum-800); overflow: hidden; }
 .game-card .art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
 .game-card:hover .art img { transform: scale(1.03); }
 .game-card .body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
-.game-card h3 { font-family: var(--font-title); font-weight: 400; font-size: 2.1rem; line-height: 1; color: var(--accent); margin: 0; }
-.game-card .sub { margin: 4px 0 10px; color: var(--ink-soft); font-weight: 500; }
+.game-card h3 { font-family: var(--font-title); font-weight: 700; font-size: 1.5rem; line-height: 1.1; text-transform: uppercase; letter-spacing: .04em; color: var(--ink); margin: 0; }
+.game-card .sub { margin: 4px 0 10px; color: var(--ink-soft); font-weight: 600; }
 .game-card .body > p:not(.eyebrow):not(.sub) { flex: 1; }
 .game-card .btn { align-self: flex-start; margin-top: 6px; }
 .values { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .values h3 { color: var(--accent); }
+.values .card { border-top: 3px solid var(--blue); }
 .contact { text-align: center; }
 .contact .email { font-size: clamp(1.1rem, 4.5vw, 1.5rem); font-weight: 600; word-break: break-word; }
 
 /* ---------- game page ---------- */
 .game-hero {
   /* Each game page sets its own art: <section class="game-hero" style="--hero-img: url('/<game>/shots/<file>.webp')"> */
-  position: relative; color: #fffaf0; overflow: hidden;
-  background: linear-gradient(180deg, rgba(29, 20, 48, .25), rgba(29, 20, 48, .55) 35%, rgba(29, 20, 48, .9) 85%), var(--hero-img, url('../hollowmere/shots/farm-wide.webp')) center 35% / cover no-repeat, var(--plum-800);
+  position: relative; color: #fff; overflow: hidden;
+  background: linear-gradient(180deg, rgba(5, 12, 34, .25), rgba(5, 12, 34, .55) 35%, rgba(5, 12, 34, .9) 85%), var(--hero-img, none) center 35% / cover no-repeat, var(--navy);
   padding: 72px 0 56px;
 }
 @media (max-width: 699px) {
-  .game-hero { background: linear-gradient(180deg, rgba(29, 20, 48, .55), rgba(29, 20, 48, .82) 30%, rgba(29, 20, 48, .94) 80%), var(--hero-img, url('../hollowmere/shots/farm-wide.webp')) 30% 30% / cover no-repeat, var(--plum-800); }
+  .game-hero { background: linear-gradient(180deg, rgba(5, 12, 34, .55), rgba(5, 12, 34, .82) 30%, rgba(5, 12, 34, .94) 80%), var(--hero-img, none) 30% 30% / cover no-repeat, var(--navy); }
 }
-.game-hero h1 { font-family: var(--font-title); font-weight: 400; font-size: clamp(3.4rem, 15vw, 6.4rem); line-height: .95; color: var(--gold); text-shadow: 0 4px 0 rgba(29, 20, 48, .55), 0 10px 30px rgba(0, 0, 0, .45); margin: 0; }
+.game-hero h1 { font-family: var(--font-game); font-weight: 400; font-size: clamp(3.4rem, 15vw, 6.4rem); line-height: .95; color: var(--gold); text-shadow: 0 4px 0 rgba(5, 12, 34, .55), 0 10px 30px rgba(0, 0, 0, .45); margin: 0; }
 .game-hero .subtitle { font-size: clamp(1.25rem, 4.5vw, 1.7rem); font-weight: 600; margin: 4px 0 14px; }
-.game-hero .pitch { max-width: 34em; font-size: 1.1rem; color: #f6ecd8; }
+.game-hero .pitch { max-width: 34em; font-size: 1.1rem; color: #eef2fb; }
 .game-hero .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 24px; padding: 0; list-style: none; }
-.game-hero .chips li { background: rgba(255, 250, 240, .14); border: 1px solid rgba(255, 250, 240, .25); border-radius: 999px; padding: 4px 12px; font-size: .92rem; }
+.game-hero .chips li { background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .25); border-radius: 999px; padding: 4px 12px; font-size: .92rem; }
 .store-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .store-badge {
   display: inline-flex; align-items: center; gap: 10px; background: #000; color: #fff; border-radius: 12px;
@@ -150,7 +154,7 @@ p { margin: 0 0 1em; }
 .store-badge small { display: block; font-size: .72rem; letter-spacing: .02em; }
 .store-badge b { display: block; font-size: 1.2rem; font-weight: 600; }
 .store-badge[aria-disabled="true"] { cursor: default; }
-.store-note { font-size: .92rem; color: #e8dcf5; }
+.store-note { font-size: .92rem; color: #dfe6f7; }
 
 .features { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 .feature .icon { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; background: var(--bg-soft); margin-bottom: 12px; }
@@ -185,6 +189,7 @@ p { margin: 0 0 1em; }
 /* ---------- legal pages (policy text is copied verbatim; only styled here) ---------- */
 .legal { max-width: 780px; margin: 0 auto; padding: 40px 16px 0; }
 .legal h1 { font-size: clamp(1.6rem, 5vw, 2.1rem); color: var(--accent); margin: 0 0 4px; }
+.legal h2, .legal h3 { text-transform: none; letter-spacing: .01em; }
 .legal h2 { font-size: 1.25rem; margin: 2em 0 .4em; padding-top: .7em; border-top: 1px solid var(--line); }
 .legal h3 { font-size: 1.05rem; margin: 1.4em 0 .3em; }
 .legal .meta { color: var(--ink-soft); margin: 0 0 24px; }
@@ -197,4 +202,4 @@ p { margin: 0 0 1em; }
 
 /* ---------- 404 ---------- */
 .lost { text-align: center; padding: 72px 16px 0; }
-.lost h1 { font-family: var(--font-title); font-weight: 400; font-size: clamp(3rem, 14vw, 5rem); color: var(--accent); margin: 0; }
+.lost h1 { font-family: var(--font-title); font-weight: 700; letter-spacing: .08em; font-size: clamp(3rem, 14vw, 5rem); color: var(--accent); margin: 0; }
