@@ -46,12 +46,13 @@
 
 <main id="main" class="legal">
 <h1>Hollowmere: Cozy Witch Farm: Privacy Policy</h1>
-<p class="meta">Effective date: October 26, 2026 · Studio H</p>
+<p class="meta">Effective date: November 3, 2026 · Studio H</p>
 
 <div class="box">
   <strong>The short version.</strong> Hollowmere is a farming game for players of all ages. Your farm is saved on your
   device. If you use the friends and farm-visit features, a copy of your farm and a random account ID are stored with
-  Google Firebase so friends can visit and your progress can be restored. We do not sell your personal information.
+  Google Firebase so friends can visit and your progress can be restored. The app also sends anonymous gameplay
+  statistics and crash reports so we can fix bugs. We do not sell your personal information.
   Ads are optional, and players under 13 get only ads that are not personalised and no tracking. The newsletter is optional too, and you can unsubscribe at any time. You can delete
   your online account from inside the game at any time.
 </div>
@@ -68,24 +69,25 @@ for the personal information described here. Contact us at <a href="mailto:devel
     device unless you use cloud save (section 2.3).</li>
   <li><strong>Age group</strong>: the birth year you enter the first time you play. We use it only to decide which features and
     ad settings apply (see section 5). It is saved with your game progress.</li>
-  <li><strong>Gameplay statistics</strong>: a short log of in-game events (for example "level up"), kept on your
-    device. In the iPhone and iPad app, anonymous gameplay statistics and crash reports are also sent to us as
-    described in section 2.3a.</li>
+  <li><strong>Gameplay log</strong>: a short log of in-game events (for example "level up"), kept on your
+    device. In the iPhone and iPad app, anonymous gameplay statistics and crash reports are also sent to us, as
+    described in section 2.4.</li>
   <li><strong>Reminders</strong>: optional reminders such as "your crops are ready" are scheduled on your device.
-    No push server is involved.</li>
+    No push server is involved. Friend notifications are different; see section 2.3.</li>
   <li><strong>Photos</strong>: photo mode creates a picture of your farm. It is saved or shared only when you choose to,
     through your device's share sheet.</li>
 </ul>
 
 <h3>2.2 Purchases</h3>
-<p>In-app purchases are processed by Apple (App Store) or Google (Google Play). We never see your payment card
-or billing details. The game receives a confirmation of the purchase (product and transaction ID) so it can deliver
-your item, and it can restore purchases through the store.</p>
+<p>In-app purchases are processed by Apple (App Store) or Google (Google Play). They handle your payment. We never see
+your payment card, billing address or Apple ID. The store sends the game a confirmation with the product and a
+transaction ID. We keep only these, in your save (and your cloud save, if you use it). We use them to deliver your item
+once, and to restore purchases on a new device.</p>
 
 <h3>2.3 Online features (friends, farm visits, cloud save)</h3>
-<p>Online features use Google Firebase (Firebase Authentication and Cloud Firestore), with data stored in the United
-States. When you first use them, the game creates an <strong>anonymous account</strong> identified by a random ID. It
-does not contain your name or email. Depending on the features you use, we store:</p>
+<p>Online features use Google Firebase (Firebase Authentication, Cloud Firestore and Firebase Cloud Messaging), with data
+stored in the United States. When you first use them, the game creates an <strong>anonymous account</strong> identified by a
+random ID. It does not contain your name or email. Depending on the features you use, we store:</p>
 <table>
   <tr><th>Data</th><th>Why</th><th>Who can see it</th></tr>
   <tr><td>Random account ID, a random device ID, and when you were last active</td><td>To run your online account and keep cloud saves in sync</td><td>Only the game's systems</td></tr>
@@ -94,52 +96,65 @@ does not contain your name or email. Depending on the features you use, we store
   <tr><td>Friend code and friends list</td><td>To connect you with friends</td><td>You and your friends</td></tr>
   <tr><td>Likes, gifts and community event contributions</td><td>To deliver gifts and track shared goals</td><td>You, the other player involved, and totals for everyone</td></tr>
   <tr><td>Cloud save (a copy of your game progress)</td><td>To restore your farm on a new device</td><td>Only you</td></tr>
+  <tr><td>Notification token, language and age group (only if you allow notifications)</td><td>To tell you about gifts, likes and guestbook stamps from friends</td><td>Only the game's systems</td></tr>
   <tr><td>Reports (a fixed reason, such as "name", with no free text) and blocks</td><td>To keep the community safe</td><td>Studio H moderators; blocks are visible only to you</td></tr>
+  <tr><td>Bug reports you send (your text, up to 3 screenshots you pick, app version, device model, screen size, language, game progress and recent errors)</td><td>To fix the problem you reported</td><td>Studio H only</td></tr>
+  <tr><td>Promo codes you redeem</td><td>So each code is used once per player</td><td>Only the game's systems</td></tr>
 </table>
 <p>Hollowmere has no chat and no free-text messages between players; gifts and likes are fixed in-game items.</p>
 <p>Firebase also processes technical information, such as IP address and device or app identifiers, to provide the
 service and prevent abuse. See <a href="https://firebase.google.com/support/privacy">Firebase's privacy information</a>.</p>
 
-<h3>2.3a Gameplay statistics and crash reports</h3>
-<p>To find bugs and make the game better, the app sends anonymous gameplay statistics and crash reports through
-Google Firebase (Google Analytics for Firebase and Firebase Crashlytics). This includes which screens and game features
-are used, tutorial and level progress, in-game coins and moonstones earned and spent, whether optional ads and store
-purchases were started or finished, app start-up time, frame rate, memory warnings, and technical details of errors and
-crashes (device model, operating system and app version). Firebase uses a random app-installation identifier to count
-devices. We do <strong>not</strong> attach your name, email, account ID or farm name, we do not use the advertising
-identifier, and this information is never used for advertising or to build a profile of you. For players under 13 the
-statistics are anonymous only and carry no personal settings. Google keeps analytics data for up to two months and crash
-reports for up to 90 days.</p>
+<h3>2.4 Gameplay statistics and crash reports</h3>
+<p>To find bugs and make the game better, the iPhone and iPad app sends gameplay statistics and crash reports through
+Google Firebase.</p>
+<ul>
+  <li><strong>Google Analytics for Firebase (GA4)</strong>: which screens and game features are used, tutorial and level
+    progress, in-game coins and moonstones earned and spent, whether optional ads and store purchases were started or
+    finished, app start-up time and frame rate. Firebase uses a random app-installation identifier to count devices.
+    Google signals are off, and Google keeps this data for 2 months.</li>
+  <li><strong>Firebase Crashlytics</strong>: crash and diagnostic details, such as the error, the screen you were on,
+    memory warnings, device model, operating system and app version. Google keeps crash reports for up to 90 days.</li>
+</ul>
+<p>This data is not linked to your identity. We do <strong>not</strong> attach your name, email, account ID or farm name.
+We do not use the advertising identifier for it, and we never use it for advertising or to build a profile of you.
+For players under 13, statistics are anonymous events only, with no personal settings attached.</p>
 
-<h3>2.4 Sign in with Apple (optional, 13 and over)</h3>
+<h3>2.5 Sign in with Apple (optional, 13 and over)</h3>
 <p>Players aged 13 or over can link their account with Sign in with Apple to keep their farm safe across
 devices. Apple then shares a user identifier and, if you allow it, your name and an email address with us. That address can be Apple's
 private relay address. We use these to sign you in and to answer support requests: Studio H keeps a private list of
 signed-in players' email addresses, player IDs, farm names and friend codes, stored in Google Sheets, so we can find your
-account when you contact us. If you agree, we also use your email address for the Hollowmere newsletter (section 2.7).
+account when you contact us. If you agree, we also use your email address for the Hollowmere newsletter (section 2.9).
 Sign in with Apple is not offered to players under 13.</p>
 
-<h3>2.5 Farm names and moderation</h3>
+<h3>2.6 Game Center (optional, 13 and over, iPhone and iPad)</h3>
+<p>The game can show achievements through Apple Game Center. Apple runs Game Center, handles the sign-in, and stores
+your achievements under Apple's own privacy policy. The game tells Game Center only which achievements you unlocked.
+It asks Game Center to sign you in only when you tap the Game Center button. Game Center is never used for players under 13.</p>
+
+<h3>2.7 Farm names and moderation</h3>
 <p>Players aged 13 or over may type a free-text farm name. Names are checked by an automatic filter, and other
 players can report or block a farm. Reported names may be hidden and reviewed by Studio H. Names that break the rules
 are removed. Players under 13 cannot type names; they choose a farm name from a list of pre-approved words.</p>
 
-<h3>2.6 Advertising</h3>
+<h3>2.8 Advertising</h3>
 <p>Hollowmere has optional rewarded ads only: you choose to watch an ad in exchange for an in-game bonus. Ads are
 provided by Google AdMob.</p>
 <ul>
   <li><strong>Players 13 and over:</strong> AdMob may collect device identifiers (such as the advertising identifier,
-    only if you allow tracking when iOS asks), IP address, and ad interactions in order to show and measure ads. Where the
-    law requires it (for example in the EU, UK and some US states), you are asked for consent first and can change your
-    choice later. You can also limit ad tracking in your device settings.</li>
+    only if you allow tracking when iOS asks), IP address, approximate location worked out from your IP address (not GPS),
+    and ad interactions in order to show and measure ads. Where the law requires it (for example in the EU, UK and some
+    US states), you are asked for consent first and can change your choice later. You can also limit ad tracking in your
+    device settings.</li>
   <li><strong>Players under 13, or before an age is given:</strong> ad requests are marked as directed to
-    children and as not personalised. The game does not show the iOS tracking prompt and does not allow
-    interest-based advertising or remarketing.</li>
+    children and as not personalised, and only G-rated ads are shown. The game does not show the iOS tracking prompt and
+    does not allow interest-based advertising or remarketing.</li>
 </ul>
 <p>See <a href="https://policies.google.com/technologies/ads">how Google uses information from apps that use its
 services</a>.</p>
 
-<h3>2.7 Newsletter (optional, 13 and over)</h3>
+<h3>2.9 Newsletter (optional, 13 and over)</h3>
 <p>When you sign in with Apple, the game offers occasional emails from Studio H about Hollowmere updates, events and new
 games. You can untick the box to say no. In the EU, EEA, UK, Switzerland and Canada, or if we can't tell your region, the
 box starts unticked, and you receive emails only if you tick it. You can stop at any time with the unsubscribe link in every email, or by turning off
@@ -150,17 +165,17 @@ newsletters through an email service provider acting on our behalf. Players unde
 
 <h2>3. How we use information</h2>
 <p>We use the information above only to run the game and its online features, deliver purchases, show optional ads,
-keep players safe (moderation, abuse prevention), fix crashes and improve the game (anonymous statistics), provide support, send the newsletter to players who signed up, and meet
+keep players safe (moderation, abuse prevention), fix crashes and improve the game (section 2.4), provide support, send the newsletter to players who signed up, and meet
 legal obligations. We do not sell personal
 information, and we do not use it for profiling beyond the ad settings described above.</p>
 <p><strong>Legal bases (EU/UK):</strong> performance of our agreement with you (running the game and the features you choose),
-legitimate interests (safety, abuse prevention, improving the game), consent (personalised ads and the newsletter, which you can withdraw at any time), and
+legitimate interests (safety, abuse prevention, fixing crashes, improving the game), consent (personalised ads and the newsletter, which you can withdraw at any time), and
 legal obligations.</p>
 
 <h2>4. Sharing</h2>
-<p>We share information only with service providers that run parts of the game for us: Google (Firebase, AdMob, and Google
-Sheets for our private support list), an email service provider for the newsletter,
-and Apple or Google for purchases and sign-in. We also share it when the law requires, or to protect the safety of players.
+<p>We share information only with service providers that run parts of the game for us: Google (Firebase, including
+Analytics, Crashlytics and Cloud Messaging; AdMob; and Google Sheets for our private support list), an email service provider for the newsletter,
+and Apple or Google for purchases, sign-in and Game Center. We also share it when the law requires, or to protect the safety of players.
 Other players see only what is listed as visible in section 2.3. If Studio H is ever involved in a merger or sale, this
 policy will continue to apply to your information.</p>
 
@@ -169,13 +184,14 @@ policy will continue to apply to your information.</p>
 any preferred answer. If you are under 13, or have not yet answered, the game automatically:</p>
 <ul>
   <li>shows only ads that are marked as directed to children and are not personalised, and never asks for tracking permission;</li>
-  <li>does not offer Sign in with Apple or the newsletter, and does not collect email addresses;</li>
+  <li>sends only anonymous gameplay statistics and crash reports (section 2.4), never linked to the child and never used for advertising;</li>
+  <li>does not offer Sign in with Apple, Game Center or the newsletter, and does not collect email addresses;</li>
   <li>replaces free-text farm names with a pre-approved word list;</li>
-  <li>sends only anonymous gameplay statistics and crash reports (section 2.3a), never linked to the child and never used for advertising;</li>
-  <li>asks a grown-up to pass a parent check before any purchase, before opening any outside link, and before changing the age setting.</li>
+  <li>asks a grown-up to pass a parent check before any purchase, before opening any outside link, before sending a bug report, and before changing the age setting.</li>
 </ul>
 <p>For players under 13, the only online information stored is the random account ID, the farm snapshot and
-name chosen from the word list, friends, likes and gifts, and the cloud save. We use these only to provide the game
+name chosen from the word list, friends, likes and gifts, the cloud save, a notification token if notifications are
+allowed, and any bug report a grown-up helps to send. We use these only to provide the game
 ("support for internal operations" under the US Children's Online Privacy Protection Act, COPPA). Parents and guardians can review or delete this information at any time
 by using <em>Settings → Account → Delete account</em> in the game, or by emailing
 <a href="mailto:developer@studiohgames.com">developer@studiohgames.com</a> with the player's friend code. If we learn that we collected
@@ -185,10 +201,11 @@ other personal information from a child under 13, we will delete it.</p>
 <ul>
   <li>On-device data stays until you delete it: reset the game in Settings, or uninstall the game.</li>
   <li>Online account data is kept while your account is active. When you delete your account, your profile, farm snapshot,
-    friends, gifts and cloud save are deleted within 30 days. Backups expire on Google's schedule.</li>
+    friends, gifts, notification token, newsletter record and cloud save are deleted within 30 days. Backups expire on Google's schedule.</li>
   <li>Your email address in our support list is kept while your account exists and removed when you delete your account.
     Newsletter details are kept until you unsubscribe or delete your account.</li>
-  <li>Moderation reports are kept for up to 12 months to help keep the community safe, then deleted. A report you filed may remain for that time even after you delete your account; it contains only your random account ID.</li>
+  <li>Gameplay statistics are kept for 2 months, and crash reports for up to 90 days.</li>
+  <li>Moderation reports and bug reports are kept for up to 12 months, then deleted. A report you filed may remain for that time even after you delete your account; it contains your random account ID but not your name or email.</li>
 </ul>
 
 <h2>7. Your choices and rights</h2>
@@ -198,7 +215,7 @@ other personal information from a child under 13, we will delete it.</p>
     consent choices in the game's settings where offered.</li>
   <li><strong>Newsletter:</strong> use the unsubscribe link in any email, or turn off <em>Settings → Account → Email me
     Hollowmere news</em>.</li>
-  <li><strong>Reminders:</strong> turn them off in the game's settings or in your device's notification settings.</li>
+  <li><strong>Reminders and notifications:</strong> turn them off in the game's settings or in your device's notification settings.</li>
   <li><strong>Access, correction, deletion, portability, objection:</strong> depending on where you live (for example under the GDPR,
     the UK GDPR, or US state laws such as the CCPA/CPRA), you may have these rights. Email us to use them; we will respond within the
     time the law requires. You may also complain to your local data protection authority.</li>
