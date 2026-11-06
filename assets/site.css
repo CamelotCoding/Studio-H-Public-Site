@@ -119,6 +119,9 @@ p { margin: 0 0 1em; }
 .game-card .art { aspect-ratio: 16 / 9; background: var(--plum-800); overflow: hidden; }
 .game-card .art img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
 .game-card:hover .art img { transform: scale(1.03); }
+/* Placeholder for a game card whose art is being redrawn: <div class="art soon"> */
+.game-card .art.soon { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 120%, rgba(35, 89, 245, .55), transparent 65%), linear-gradient(160deg, #09163c, #000000); }
+.game-card .art.soon span { color: #ffffff; font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .14em; padding: 6px 14px; border: 1px solid rgba(255, 255, 255, .35); border-radius: 999px; }
 .game-card .body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
 .game-card h3 { font-family: var(--font-title); font-weight: 700; font-size: 1.5rem; line-height: 1.1; text-transform: uppercase; letter-spacing: .04em; color: var(--ink); margin: 0; }
 .game-card .sub { margin: 4px 0 10px; color: var(--ink-soft); font-weight: 600; }
