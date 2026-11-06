@@ -124,6 +124,8 @@ p { margin: 0 0 1em; }
 .game-card .sub { margin: 4px 0 10px; color: var(--ink-soft); font-weight: 600; }
 .game-card .body > p:not(.eyebrow):not(.sub) { flex: 1; }
 .game-card .btn { align-self: flex-start; margin-top: 6px; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+.card-actions .btn { margin-top: 0; }
 .values { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
 .values h3 { color: var(--accent); }
 .values .card { border-top: 3px solid var(--blue); }
@@ -154,6 +156,7 @@ p { margin: 0 0 1em; }
 .store-badge small { display: block; font-size: .72rem; letter-spacing: .02em; }
 .store-badge b { display: block; font-size: 1.2rem; font-weight: 600; }
 .store-badge[aria-disabled="true"] { cursor: default; }
+.store-badge--soon { opacity: .8; padding-left: 18px; }
 .store-note { font-size: .92rem; color: #dfe6f7; }
 
 .features { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
