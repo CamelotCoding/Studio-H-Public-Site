@@ -12,6 +12,7 @@ const GAMES = {
   'ararat-acres': { name: 'Ararat Acres', url: '', note: 'Free to play on iPhone, iPad and Android.' },
   leafy: { name: 'Leafy Tycoon', url: '', note: 'Free to play on iPhone and iPad.' },
   aegis: { name: 'Aegis of the Ancients', url: '', note: 'Free to play on iPhone and iPad.' },
+  picturepatch: { name: 'Picture Patch', url: '', note: 'Free to play on iPhone, iPad and Android.' },
 };
 
 document.querySelectorAll('[data-app-store]').forEach((a) => {

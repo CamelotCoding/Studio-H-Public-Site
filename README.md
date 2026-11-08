@@ -16,6 +16,7 @@ external script. Edit a file, commit, push to `main`, and GitHub Pages publishes
 | `camelot/` | Camelot Tea Legends: Idle Hero-Collector RPG |
 | `ararat-acres/` | Ararat Acres: After the Flood |
 | `leafy/` | Leafy Tycoon: Idle Plant Shop |
+| `picturepatch/` | Picture Patch: Cozy Idle Tapper |
 | `aegis/` | Aegis of the Ancients: Myth Tower Defense |
 | `brightwake/` | Brightwake: a 2D pixel MMORPG in closed beta (web, no App Store links) |
 | `brightwake/wiki/` | Brightwake player wiki: one folder per topic page, plus `pages.js` (the page list) |
