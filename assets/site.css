@@ -160,6 +160,8 @@ p { margin: 0 0 1em; }
 .store-badge b { display: block; font-size: 1.2rem; font-weight: 600; }
 .store-badge[aria-disabled="true"] { cursor: default; }
 .store-badge--soon { opacity: .8; padding-left: 18px; }
+.store-badge--discord { background: #5865F2; border-color: #5865F2; transition: background .15s ease; }
+.store-badge--discord:hover, .store-badge--discord:focus-visible { background: #4752C4; border-color: #4752C4; }
 .store-note { font-size: .92rem; color: #dfe6f7; }
 
 .features { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
