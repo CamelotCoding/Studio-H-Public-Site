@@ -3,8 +3,8 @@
     "apps": [],
     "details": [
       {
-        "appIDs": ["TEAMID_PLACEHOLDER.com.camelotcoding.hollowmere"],
-        "appID": "TEAMID_PLACEHOLDER.com.camelotcoding.hollowmere",
+        "appIDs": ["49W5X4G444.com.camelotcoding.hollowmere"],
+        "appID": "49W5X4G444.com.camelotcoding.hollowmere",
         "components": [{ "/": "/hollowmere/invite*" }],
         "paths": ["/hollowmere/invite*"]
       }
