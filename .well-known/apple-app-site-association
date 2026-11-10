@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["TEAMID_PLACEHOLDER.com.camelotcoding.hollowmere"],
+        "appID": "TEAMID_PLACEHOLDER.com.camelotcoding.hollowmere",
+        "components": [{ "/": "/hollowmere/invite*" }],
+        "paths": ["/hollowmere/invite*"]
+      }
+    ]
+  }
+}
