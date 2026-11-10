@@ -4,7 +4,7 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.camelotcoding.hollowmere",
-      "sha256_cert_fingerprints": ["PLAY_SHA256_PLACEHOLDER"]
+      "sha256_cert_fingerprints": ["6A:ED:0A:1D:D4:C1:82:2E:8D:59:AF:1B:1C:76:94:29:29:62:2F:A1:65:73:6E:B1:8E:51:6F:40:DB:91:7F:05"]
     }
   }
 ]
