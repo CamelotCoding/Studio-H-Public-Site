@@ -5,7 +5,7 @@
 // Paste the App Store URL into `url` once the game is live. Badges then become "Download on the App Store" links.
 // Leave `url` empty ('') while the game is "Coming soon".
 const GAMES = {
-  hollowmere: { name: 'Hollowmere', url: 'https://apps.apple.com/us/app/hollowmere-cozy-witch-farm/id6826611308', note: 'Out now. Free to play on iPhone and iPad. Google Play is coming soon.' },
+  hollowmere: { name: 'Hollowmere', url: 'https://apps.apple.com/us/app/hollowmere-cozy-witch-farm/id6826611308', note: 'Out now. Free to play on iPhone, iPad and Android.' },
   brightwake: { name: 'Brightwake', url: '', note: 'Closed beta: sign-up is by invite at brightwakegame.com.' },
   sevenfold: { name: 'Sevenfold', url: '', note: 'Available on iPhone and iPad.' },
   camelot: { name: 'Camelot Tea Legends', url: '', note: 'Free to play on iPhone and iPad.' },
