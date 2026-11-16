@@ -43,6 +43,9 @@ navigation or footer has to be made in each HTML file.
 Every page's `<head>` links the brand favicon set (`/assets/brand/`) and the Google Fonts, and the header shows
 the Studio H icon and name. Game pages keep their own hero art, `og.png` and `theme-color`.
 
+Every page's `<head>` must also start with the Google Analytics 4 tag (`gtag.js`, Measurement ID `G-XDE1H2LTJW`):
+copy it from any existing page when adding a new one.
+
 **Theme** (`assets/site.css`): the brand colours are Black `#000000`, Deep Navy `#09163C`, Electric Blue
 `#2359F5` and White `#FFFFFF`, as CSS variables at the top of the file; dark mode follows the visitor's system
 setting. Headings use Saira Bold (uppercase, wide tracking) and body text Inter, both from Google Fonts. The
