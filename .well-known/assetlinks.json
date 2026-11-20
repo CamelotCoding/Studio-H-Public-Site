@@ -4,7 +4,12 @@
     "target": {
       "namespace": "android_app",
       "package_name": "com.camelotcoding.hollowmere",
-      "sha256_cert_fingerprints": ["6A:ED:0A:1D:D4:C1:82:2E:8D:59:AF:1B:1C:76:94:29:29:62:2F:A1:65:73:6E:B1:8E:51:6F:40:DB:91:7F:05"]
+      "sha256_cert_fingerprints": [
+        "6A:ED:0A:1D:D4:C1:82:2E:8D:59:AF:1B:1C:76:94:29:29:62:2F:A1:65:73:6E:B1:8E:51:6F:40:DB:91:7F:05",
+        "68:A0:C3:24:0F:47:5B:55:CC:E9:42:84:2D:8B:E0:84:17:3F:4F:D7:95:CE:38:F7:9B:02:A9:B5:5D:F7:B9:F2",
+        "B4:EC:19:53:A4:3B:D9:22:24:92:8D:4A:FF:4F:3E:F1:8D:2B:F5:61:2E:2D:30:C6:13:6A:3C:1E:20:96:2D:4C",
+        "49:C2:B6:07:E2:37:32:18:A2:39:48:47:FC:07:BB:10:AB:3E:CD:B4:33:CD:39:AB:56:B6:F0:F5:45:0B:40:8C"
+      ]
     }
   }
 ]
